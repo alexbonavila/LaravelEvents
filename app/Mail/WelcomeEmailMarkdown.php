@@ -7,19 +7,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class WelcomeEmail extends Mailable
+class WelcomeEmailMarkdown extends Mailable
 {
     use Queueable, SerializesModels;
+    protected $user;
 
     /**
-     * Create a new message instance.
-     *
-     * @return void
+     * WelcomeEmailMarkdown constructor.
+     * @param $user
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
+
 
     /**
      * Build the message.
@@ -28,6 +29,9 @@ class WelcomeEmail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.welcome');
+        $data = [
+            'name' => $this->user->name,
+        ];
+        return $this->markdown('emails.welcome', $data);
     }
 }
