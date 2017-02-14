@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\NewRegisteredUserEvent;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -24,8 +25,8 @@ class MonitorListener
      * @param  NewRegisteredUserEvent  $event
      * @return void
      */
-    public function handle(NewRegisteredUserEvent $event)
+    public function handle(Registered $event)
     {
-        dd("monitor listener");
+//        dump("monitor listener");
     }
 }
