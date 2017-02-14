@@ -9,7 +9,17 @@
 namespace app\Observers;
 
 
+use App\Mail\WelcomeEmailMarkdown;
+use App\User;
+use Illuminate\Support\Facades\Mail;
+
 class UserObserver
 {
+
+    public function created(User $user)
+    {
+        dd("prova");
+        //Mail::to($user->email)->send(new WelcomeEmailMarkdown($user));
+    }
 
 }
