@@ -26,6 +26,6 @@ class WelcomeEmailEventListener
      */
     public function handle(NewRegisteredUserEvent $event)
     {
-        //
+        dd("listened registered users");
     }
 }

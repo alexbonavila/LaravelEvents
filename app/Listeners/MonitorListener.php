@@ -26,6 +26,6 @@ class MonitorListener
      */
     public function handle(NewRegisteredUserEvent $event)
     {
-        //
+        dd("monitor listener");
     }
 }
