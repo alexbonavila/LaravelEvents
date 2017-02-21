@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\EmailSent;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -29,6 +30,8 @@ class SendMail implements ShouldQueue
      */
     public function handle()
     {
+        sleep(10);
         dump('email enviat');
+        event(new EmailSent());
     }
 }
