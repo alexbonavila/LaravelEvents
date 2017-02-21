@@ -15,7 +15,12 @@ class RegisterUserController extends Controller
          $user = new \App\User();
         $user->name = 'hola hola';
         $user->email = 'hola@hola.com';
+
+        \Log::info('Before Event');
+
         event(new Registered($user));
+
+        \Log::info('Afer Event');
         dump("Done!");
     }
 }
