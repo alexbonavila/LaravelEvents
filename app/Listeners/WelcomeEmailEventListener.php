@@ -10,7 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
 
-class WelcomeEmailEventListener
+class WelcomeEmailEventListener implements ShouldQueue
 {
     /**
      * Create the event listener.
